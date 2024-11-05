@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.threeesoftwares.socialmobileapp",
+      "sha256_cert_fingerprints": [
+        "C6:7E:12:0E:B1:DD:19:BC:75:5A:D9:2A:99:31:EE:4A:75:55:77:3D:D6:30:1F:67:C1:AB:AE:AC:C2:14:EA:51"
+      ]
+    }
+  }
+]
