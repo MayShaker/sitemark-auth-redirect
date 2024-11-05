@@ -4,9 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitemark Auth Redirect</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to Sitemark Auth Redirect</h1>
-    <p>This page is used to handle authentication redirects.</p>
+    <div>
+        <h1>Welcome to Sitemark Auth Redirect</h1>
+        <p>This page is used to handle authentication redirects.</p>
+    </div>
+
+    <script>
+        // Function to parse URL parameters
+        function getQueryParams() {
+            const params = {};
+            window.location.search.substr(1).split("&").forEach(function (item) {
+                const [key, value] = item.split("=");
+                params[decodeURIComponent(key)] = decodeURIComponent(value || "");
+            });
+            return params;
+        }
+
+        // Redirect handling logic
+        const queryParams = getQueryParams();
+        if (Object.keys(queryParams).length > 0) {
+            // Process the query parameters here
+            console.log("Query parameters:", queryParams);
+            
+            // For example, if you get an access token or code, you can send it to your app
+            // Redirect back to your app with the parameters
+            const appRedirectURI = `myapp://callback?${new URLSearchParams(queryParams).toString()}`;
+            window.location.href = appRedirectURI; // Redirect back to your app
+        }
+    </script>
 </body>
 </html>
